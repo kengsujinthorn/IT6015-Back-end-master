@@ -43,7 +43,7 @@ app.post('/job', async (req, res) => {
 
 app.put('/job/:id', async (req, res) => {
   const payload = req.body
-  const { id } = req.params
+  const { id } = req.params.id
 
   const job = await Job.findByIdAndUpdate(id, { $set: payload })
   res.json(job)
