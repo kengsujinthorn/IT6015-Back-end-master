@@ -10,6 +10,7 @@ mongoose.connect('mongodb://localhost:27017/node-api-101', {
 })
 
 const jobSchema = mongoose.Schema({
+  id:String,
   empImg: String,
   jobName: String,
   jobDescription: String,
