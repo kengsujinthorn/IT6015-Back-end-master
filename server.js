@@ -2,7 +2,8 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const Job = require('./model/job')
-var cors = require('cors')
+const cors = require('cors')
+const router = express.Router();
 app.use(express.json())
 
 mongoose.connect('mongodb://localhost:27017/node-api-101', {
@@ -10,7 +11,7 @@ mongoose.connect('mongodb://localhost:27017/node-api-101', {
 })
 
 const jobSchema = mongoose.Schema({
-  id:String,
+  id: String,
   empImg: String,
   jobName: String,
   jobDescription: String,
@@ -30,7 +31,7 @@ app.get('/job/', async (req, res) => {
 })
 
 app.get('/job/:id', async (req, res) => {
-  const  ID  = String(req.params.id)
+  const ID = String(req.params.id)
   const job = await Job.find({ id: ID })
   res.json(job)
 })
@@ -51,8 +52,8 @@ app.put('/job/:id', async (req, res) => {
 })
 
 app.delete('/job/:id', async (req, res) => {
-  const id = String(req.params.id)
-  await Job.findOneAndDelete(id)
+  const ID = String(req.params.id)
+  await Job.findOneAndDelete({ id: ID })
   res.status(204).end()
 })
 
