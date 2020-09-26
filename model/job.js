@@ -8,9 +8,9 @@ const jobSchema = new Schema({
     jobDescription: String,
     empName: String,
     wage: String,
+    startDate: Date,
     tags: [String]
-},
-    { timestamps: true, versionKey: false }
+}
 )
 
 const JobModel = mongoose.model('Job', jobSchema)
