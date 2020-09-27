@@ -10,9 +10,8 @@ const jobSchema = new Schema({
     wage: String,
     startDate: Date,
     tags: [String]
-}
-)
+}, {
+    collection: 'jobs'
+})
 
-const JobModel = mongoose.model('Job', jobSchema)
-
-module.exports = JobModel
+module.exports = mongoose.model('Job', jobSchema)
