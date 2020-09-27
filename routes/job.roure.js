@@ -67,7 +67,7 @@ router.route('/update-job/:id').put((req, res, next) => {
   })
 })
 
-Delete Job
+// Delete Job
 router.route('/delete-job/').delete((req, res, next) => {
   const data = res.params;
   jobSchema.findOneAndDelete({params:data},(error, data) => {
